@@ -40,6 +40,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] Camera overheadCamera;
     Camera currentCamera;
 
+    public bool cueBallHitSomething = false;
+
+    public void CueBallHitSomething()
+    {
+        cueBallHitSomething = true;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -65,7 +72,6 @@ public class GameManager : MonoBehaviour
             {
                 if (ball.GetComponent<Rigidbody>().velocity.magnitude >= movementThreshold)
                 {
-                    Debug.Log(ball.GetComponent<Rigidbody>().velocity.magnitude);
                     allStopped = false;
                     break;
                 }
@@ -73,6 +79,10 @@ public class GameManager : MonoBehaviour
             if (allStopped)
             {
                 isWaitingForBallMovementToStop = false;
+                if (!cueBallHitSomething)
+                {
+                    Scratch();
+                }
                 if (willSwapPlayers || !ballPocketed)
                 {
                     NextPlayerTurn();
@@ -83,9 +93,12 @@ public class GameManager : MonoBehaviour
                 }
                 currentTimer = shotTimer;
                 ballPocketed = false;
+                cueBallHitSomething = false;
             }
         }
     }
+
+
 
     public void SwitchCameras()
     {

@@ -507,11 +507,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3fdc93f79b52c4a47afec56df4d9e7e6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.123
+      value: -0.135
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3fdc93f79b52c4a47afec56df4d9e7e6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.483
+      value: -0.442
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3fdc93f79b52c4a47afec56df4d9e7e6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1639,11 +1639,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 1440
-  offset: {x: 1.2, y: 0.08, z: 0}
+  offset: {x: 0.9, y: 0.3, z: 0}
   downAngle: 15
   power: 2
   cueStick: {fileID: 1469489914}
-  maxDrawDistance: 0
+  maxDrawDistance: -5
   powerText: {fileID: 1479215026}
 --- !u!1 &1005036302
 GameObject:

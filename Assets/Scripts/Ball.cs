@@ -8,17 +8,34 @@ public class Ball : MonoBehaviour
     private bool is8Ball = false;
     private bool isCueBall = false;
 
+    private GameManager gameManager;
+
     Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+         rb = GetComponent<Rigidbody>();
+         gameManager = FindObjectOfType<GameManager>();
     }
+
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (isCueBall)
+        {
+            // Cue ball hits something (another ball or a wall)
+            if (collision.gameObject.CompareTag("Ball") || collision.gameObject.CompareTag("Cushion"))
+            {
+                // Notify the GameManager that the cue ball hit something
+                gameManager.CueBallHitSomething();
+            }
+        }
     }
 
     private void FixedUpdate()
